@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f8f6ff"><meta name="description" content="もえの学習アプリ・英会話 Live・5教科・学習ログ">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="もえの学習"><link rel="apple-touch-icon" href="icon.png"><link rel="manifest" href="manifest.webmanifest"><title>もえのまいにち学習 v3.1</title>
+<style>
+:root{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;color:#252542;background:#f8f6ff;font-synthesis:none}
+*{box-sizing:border-box}body{margin:0;min-height:100dvh}button,select{font:inherit}button{cursor:pointer}button:focus-visible,select:focus-visible{outline:3px solid #6151b5;outline-offset:3px}
+.shell{max-width:610px;min-height:100dvh;margin:auto;padding:24px 18px 50px}.top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:21px}.brand{font-size:14px;color:#6652b1;font-weight:800;letter-spacing:.1em}.date{font-size:13px;color:#6f6c84}.hero{background:linear-gradient(125deg,#eae5ff,#fff0e5);border-radius:27px;padding:25px 23px;margin:10px 0 18px;border:1px solid #ece2ff}.eyebrow{font-size:13px;color:#756a94;font-weight:750;margin:0 0 9px}.hero h1{margin:0;font-size:27px;line-height:1.45;letter-spacing:.02em}.hero p{font-size:14px;line-height:1.7;margin:10px 0 0;color:#59566c}.card{background:#fff;border:1px solid #eeebf6;border-radius:23px;box-shadow:0 8px 25px #4132780b;padding:22px;margin-bottom:15px}.section-title{font-size:17px;font-weight:800;margin:0 0 13px}.subjects{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.subject-pill{border-radius:14px;padding:11px 2px;text-align:center;font-size:12px;font-weight:750;background:#f5f2fc;color:#5d5980}.subject-pill.done{background:#e2f8ea;color:#18774d}.subject-pill.current{background:#e9e2ff;color:#593caf;box-shadow:inset 0 0 0 2px #a48be6}.progress{height:9px;background:#efecf7;border-radius:99px;margin:18px 0 6px;overflow:hidden}.bar{height:100%;background:#8a70da;border-radius:99px;transition:width .25s}.meta{display:flex;justify-content:space-between;color:#77738a;font-size:13px}.primary{background:#6650ca;color:white;border:0;border-radius:16px;min-height:51px;padding:12px 20px;font-weight:800;width:100%;margin-top:15px}.primary:hover{background:#5640b4}.primary:disabled{background:#b8b2d0;cursor:default}.secondary{background:#fff;color:#6650ca;border:1px solid #d8d0ef;border-radius:15px;min-height:43px;padding:9px 16px;font-weight:750}.ghost{background:transparent;border:0;color:#756a94;font-size:13px;padding:10px}.small{font-size:13px;color:#78758b;line-height:1.7}.label{font-size:13px;letter-spacing:.04em;color:#776e96;font-weight:800}.question{font-size:21px;line-height:1.55;font-weight:800;margin:16px 0 23px;white-space:pre-wrap}.options{display:grid;gap:10px}.option{display:flex;align-items:center;gap:13px;text-align:left;padding:14px 15px;border-radius:15px;background:#faf9fe;color:#2e2a43;border:1.5px solid #e9e5f0;min-height:57px;font-size:16px;line-height:1.5}.option:hover:not(:disabled){background:#f2edff;border-color:#c8baf8}.option .abc{display:flex;align-items:center;justify-content:center;width:27px;height:27px;flex-shrink:0;border-radius:9px;background:#ebe6f6;color:#6a5ab2;font-size:13px;font-weight:800}.option.correct{border-color:#46aa77;background:#eaf9f1}.option.incorrect{border-color:#d9969b;background:#fff0f0}.option:disabled{cursor:default}.feedback{margin-top:19px;padding:16px 17px;border-radius:16px;background:#f1f7f4;line-height:1.75;font-size:14px}.feedback.wrong{background:#fff5eb}.feedback strong{display:block;font-size:16px;margin-bottom:4px}.count{color:#6b5f91;font-weight:750;font-size:13px}.score{font-size:40px;color:#5e45be;font-weight:900;letter-spacing:-.04em}.divider{height:1px;background:#eeeaf6;margin:18px 0}.review-item{padding:13px 0;border-bottom:1px solid #f0edf7}.review-item:last-child{border:0}.review-item strong{display:block;font-size:14px;line-height:1.6}.review-item p{margin:5px 0;color:#655d7e;font-size:13px;line-height:1.6}.settings{display:flex;align-items:center;gap:10px;justify-content:space-between;font-size:14px}.settings select{border:1px solid #dbd4ec;background:#fff;border-radius:10px;padding:7px 10px;color:#302c43}.notice{font-size:12px;color:#827e91;line-height:1.7;text-align:center;padding:6px 15px}.hide{display:none!important}.stack{display:grid;gap:10px}.rowbuttons{display:flex;gap:10px}.rowbuttons>*{flex:1}.completion{font-size:17px;line-height:1.7}.star{display:inline-block;font-size:32px;margin-bottom:8px}.tiny-badge{display:inline-block;border-radius:100px;background:#efe9fe;color:#6945ba;font-weight:800;padding:6px 11px;font-size:12px;margin-bottom:8px}@media(min-width:540px){.shell{padding-top:42px}.hero h1{font-size:30px}}
+
+/* 5-day English × Live learning path */
+.english-card{border:1px solid #cde4d6;background:linear-gradient(135deg,#f1fff6,#eff5ff);border-radius:23px;padding:22px;margin-bottom:16px;box-shadow:0 6px 22px #344f6b0b}
+.eng-head{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:10px}.eng-tag{font-size:12px;font-weight:800;background:#dbf5e5;color:#196443;border-radius:99px;padding:5px 11px}.eng-card-h{font-size:20px;font-weight:850;margin:6px 0 5px}.eng-detail{font-size:14px;color:#46615a;line-height:1.75;margin:8px 0 12px}.eng-week{display:flex;gap:7px;margin:15px 0}.eng-day{flex:1;min-width:0;text-align:center;background:#fff9;border:1px solid #d9e6db;border-radius:13px;padding:9px 2px;font-size:12px;font-weight:800;color:#537066}.eng-day.current{background:#217b60;color:white;border-color:#217b60}.eng-day.done{background:#c7f0d7;color:#145c3a}.eng-primary{display:block;width:100%;min-height:51px;border-radius:16px;background:#188162;color:white;border:0;font-weight:850;margin-top:14px;padding:12px 16px}.eng-primary:hover{background:#0e6b50}.eng-secondary{background:white;border:1px solid #94c7b3;color:#176b52;border-radius:15px;padding:11px 14px;font-weight:750;min-height:45px;width:100%}.eng-step{color:#187456;font-size:12px;font-weight:850;letter-spacing:.05em}.eng-h1{font-size:25px;line-height:1.4;margin:10px 0}.eng-sub{font-size:14px;color:#65717c;line-height:1.8;margin:4px 0 16px}.phrase-card{padding:16px 15px;margin:10px 0;background:#f6fbf8;border:1px solid #dfeee4;border-radius:16px}.phrase-en{font-size:20px;font-weight:800;line-height:1.5;color:#253f35}.phrase-ja{font-size:15px;margin-top:6px}.phrase-tip{font-size:12px;color:#61776d;margin-top:7px;line-height:1.6}.phrase-card button{font-size:12px;border:0;color:#267f5d;background:transparent;padding:6px 2px;min-height:30px}.eng-sep{border:0;border-top:1px solid #e4ece8;margin:17px 0}.eng-mission{background:#f7f5ff;padding:15px 16px;border:1px solid #e9dffe;border-radius:16px;line-height:1.75;font-size:14px}.eng-mission strong{color:#604cad}.eng-mission ul{margin:8px 0 0;padding-left:22px}.eng-prompt{width:100%;min-height:115px;resize:vertical;background:#fafafa;border:1px solid #d8e3dd;border-radius:13px;padding:12px;font-size:13px;line-height:1.7;color:#323b35}.eng-status{font-size:12px;color:#266b52;min-height:20px;margin-top:6px}.eng-btnrow{display:flex;gap:9px;flex-wrap:wrap;margin-top:11px}.eng-btnrow>*{flex:1 1 130px}.eng-choice{margin-top:9px}.eng-choice .option{background:#f9fdfa}.eng-pill{display:inline-block;border-radius:99px;background:#e6f3eb;color:#286d52;padding:6px 10px;font-weight:800;font-size:12px;margin:3px 5px 0 0}.eng-foot{display:block;color:#738179;font-size:12px;line-height:1.7;margin-top:14px}.eng-kudos{background:#fff9ec;border:1px solid #f1e3b9;border-radius:15px;padding:13px 15px;line-height:1.7;font-size:14px}
+
+/* Cloud and guardian extension */
+.shell{max-width:780px}.top{margin-bottom:14px}.top-right{display:flex;gap:8px;align-items:center}.cloud-badge{background:#f0edf8;border:1px solid #ded7f4;color:#5c4b8e;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:800}.cloud-badge.connected{background:#e5f7ed;color:#136a49;border-color:#b8e4cb}.nav{display:flex;gap:8px;flex-wrap:wrap;margin:5px 0 15px}.nav button{background:white;color:#5c527c;border:1px solid #e1dcec;padding:9px 12px;border-radius:12px;font-weight:750;font-size:13px}.nav button.selected{background:#6954c4;color:white}.muted{color:#757388;font-size:13px;line-height:1.7}.pill{display:inline-block;background:#ece8f8;color:#6047a8;padding:4px 9px;border-radius:999px;font-size:12px;font-weight:700}.field{width:100%;border:1px solid #d4cfdf;border-radius:13px;padding:12px;font:inherit;color:#29253a;background:white;min-height:46px}.field:focus{outline:3px solid #dcd3ff}textarea.field{min-height:125px;resize:vertical;font-size:14px;line-height:1.7}.form-row{margin:13px 0}.form-row label{display:block;font-size:13px;font-weight:800;color:#60577c;margin-bottom:6px}.error{color:#a42539;background:#fff0f2;padding:12px;border-radius:13px;font-size:13px;line-height:1.65}.success{color:#165f45;background:#e9f8ef;padding:12px;border-radius:13px;font-size:13px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.stat{background:#f7f4ff;border-radius:16px;padding:13px 7px;text-align:center}.stat b{font-size:24px;display:block;color:#624bb8}.stat span{font-size:11px;color:#746b88}.logs{width:100%;border-collapse:collapse;font-size:13px}.logs td,.logs th{border-bottom:1px solid #eeebf4;padding:10px 5px;text-align:left;vertical-align:top}.logs th{color:#6b6480}.chip{font-size:12px;border-radius:9px;padding:3px 7px;background:#ecf8ee;color:#176a49}.review-text{background:#f7f7fb;white-space:pre-wrap;overflow-wrap:anywhere;padding:12px;border-radius:12px;font-size:13px;line-height:1.7}.section-note{background:#fffaf0;border:1px solid #f3e6c7;border-radius:14px;padding:12px;color:#6b5a3c;font-size:13px;line-height:1.6}.title-sm{font-size:17px;font-weight:850;margin:16px 0 8px}.buttonline{display:flex;gap:9px;flex-wrap:wrap}.buttonline>*{flex:1 1 140px}.message{padding:9px 0;font-size:13px;color:#715b94}.english-card{margin-top:12px}.footer-note{text-align:center;font-size:12px;color:#8b879b;margin-top:24px;line-height:1.7}.empty{padding:20px;border-radius:12px;background:#f8f6fc;text-align:center;color:#77718c;font-size:13px}.clock{font-variant-numeric:tabular-nums}button:disabled{opacity:.6;cursor:not-allowed}.sectionTitle{font-weight:850;font-size:17px;margin:0 0 10px}@media(max-width:370px){.stats{grid-template-columns:1fr 1fr}.top-right{flex-wrap:wrap;justify-content:end}}
+</style></head><body><main id="app" class="shell" aria-live="polite"></main><script src="config.js"></script><script>const BANK={
+"英語":[
+["I am ___ doing my homework.（私はまだ宿題をしています）",["yet","still","always","never"],1,"still は『まだ続いている』という意味。肯定文にも使います。"],
+["I haven't finished my homework ___.（私はまだ宿題を終えていません）",["still","always","yet","often"],2,"yet は否定文で『まだ～していない』、疑問文で『もう～した？』によく使います。"],
+["Have you eaten breakfast ___?（もう朝食を食べましたか？）",["yet","still","always","never"],0,"yet は現在完了形の疑問文で『もう』と尋ねるときによく使います。"],
+["She ___ gets up at seven.（彼女はいつも7時に起きます）",["yet","still","always","already"],2,"always は『いつも』。習慣や頻度を表します。"],
+["Are you ___ waiting?（まだ待っていますか？）",["always","yet","still","never"],2,"動作が続いているか尋ねるなら still。"],
+["I don't ___ drink coffee.（私はいつもコーヒーを飲むわけではありません）",["still","always","yet","already"],1,"not always は『いつも～とは限らない』を表します。"],
+["Thank you ___ your help.",["to","at","for","with"],2,"Thank you for ～ は『～をありがとう』という決まり文句。"],
+["『いいね！／それはよさそう！』に近い表現は？",["Sounds good!","Don't mind!","Still good!","I yet!"],0,"Sounds good! は提案への気軽な同意です。"],
+["I ___ play tennis on Sundays.（私は日曜日にはいつもテニスをします）",["yet","always","still","already"],1,"習慣の頻度は always を使います。"],
+["『私はまだお腹がすいています』に自然なのは？",["I am yet hungry.","I am always hungry.","I am still hungry.","I still yet hungry."],2,"まだその状態が続くので still を使います。"],
+["『あなたはもう準備ができていますか？』",["Are you ready yet?","Are you ready still?","Are you always ready yet?","Are you yet always ready?"],0,"Are you ready yet? は自然な『もう準備できた？』です。"],
+["I have ___ been to Kyoto.（私は京都に行ったことがありません）",["still","ever","never","yet"],2,"never は『一度も～ない』を表します。"],
+["『私は昨日映画を見ました』に正しい文は？",["I watch a movie yesterday.","I watched a movie yesterday.","I watching a movie yesterday.","I am watched yesterday."],1,"過去のことを表すので watched。"],
+["He is taller ___ me.",["than","then","that","to"],0,"比較級＋than は『～より』。"],
+["『私は英語を勉強するのが好きです』",["I like study English.","I like studying English.","I am like English study.","I liking study English."],1,"like の後は動名詞（studying）などを使います。"],
+["『私はまだその本を読んでいません』",["I haven't read the book yet.","I am not read the book still.","I always don't read the book.","I didn't reading the book."],0,"否定の現在完了形と yet の組み合わせです。"],
+["『気にしないで』に近い表現は？",["No worries.","Have yet.","Always mind.","Be still."],0,"No worries. は『気にしないで』というカジュアルな表現。"],
+["Which one means『ときどき』?",["always","sometimes","still","yet"],1,"sometimes は『ときどき』。always は『いつも』。"],
+],
+"数学":[
+["7 × 8 = ?",["54","56","58","64"],1,"7×8＝56。7を8回足しても求められます。"],
+["6 × 9 = ?",["54","56","63","48"],0,"6×9＝54。"],
+["4 × 7 = ?",["21","24","28","32"],2,"4×7＝28。"],
+["8 × 9 = ?",["64","72","81","63"],1,"8×9＝72。"],
+["5 × 8 = ?",["35","40","45","48"],1,"5×8＝40。"],
+["36 ÷ 6 = ?",["5","6","7","8"],1,"6×6＝36 なので 36÷6＝6。"],
+["1cm が実際の 1km の地図で、3cm は何km？",["300m","1km","3km","30km"],2,"1cm が1kmなので、3cm は3kmです。"],
+["地図上の 5cm が実際の 2km。1cm は何m？",["40m","200m","400m","500m"],2,"2km＝2000m。2000÷5＝400m。"],
+["0.5 + 0.25 = ?",["0.30","0.55","0.75","0.80"],2,"0.50＋0.25＝0.75。"],
+["12 の 25% は？",["2","3","4","6"],1,"25%＝4分の1。12÷4＝3。"],
+["x + 5 = 12 のとき x は？",["5","6","7","17"],2,"両辺から5を引くと、x＝7。"],
+["3x = 18 のとき x は？",["3","6","9","15"],1,"両辺を3で割ると x＝6。"],
+["−3 + 8 = ?",["−11","−5","5","11"],2,"−3から右へ8進むと5。"],
+["一辺4cmの正方形の面積は？",["8cm²","12cm²","16cm²","20cm²"],2,"正方形の面積＝4×4＝16cm²。"],
+["1/2 + 1/4 = ?",["1/6","2/6","3/4","1/8"],2,"1/2＝2/4。2/4＋1/4＝3/4。"],
+["時速60kmで30分進むと何km？",["15km","30km","60km","120km"],1,"30分は0.5時間。60×0.5＝30km。"],
+["9 × 7 = ?",["56","61","63","72"],2,"9×7＝63。"],
+["2.4 × 10 = ?",["0.24","2.40","24","240"],2,"10倍すると小数点が右へ1つ動きます。"],
+],
+"国語":[
+["『努力が実を結ぶ』の意味に近いのは？",["努力が結果につながる","花が咲く","急いで終える","人に秘密を話す"],0,"続けた努力が成果につながることです。"],
+["『慎重』の読み方は？",["しんちょう","しんじゅう","じんちょう","しんちゅう"],0,"慎重（しんちょう）。よく考えて注意深く行うこと。"],
+["『協力』と意味が近いのは？",["反対","助け合い","競争","独立"],1,"協力は力を合わせて取り組むこと。"],
+["『予測』の意味は？",["過去を忘れる","先のことを考えて見通す","約束を破る","文章を写す"],1,"予測はこれから起きることを推し量ること。"],
+["『臨機応変』の意味は？",["いつも同じ方法にする","その場に合わせて対応する","先延ばしにする","ゆっくり歩く"],1,"状況に応じて適切な対応をすることです。"],
+["『彼は、まるで風のように走った』に使われている表現は？",["擬人法","直喩","反復法","倒置法"],1,"『まるで～のように』を使った直喩（ちょくゆ）です。"],
+["『徐々に』の意味は？",["突然","少しずつ","必ず","何度も"],1,"徐々に＝少しずつ、だんだん。"],
+["『原因』の反対側にある考え方として近いのは？",["結果","予想","記録","方法"],0,"原因があって、結果が生じます。"],
+["『その案は妥当だ』の『妥当』の意味は？",["無理がある","適切である","新しい","面白い"],1,"妥当とは、事情に照らして適切なこと。"],
+["『意見』と『事実』の違いで正しいのは？",["意見は誰にも違いがない","事実は確かめられる出来事","事実は必ず未来のこと","どちらも全く同じ"],1,"事実は確認可能、意見は考えや判断です。"],
+["『雨が降った。しかし、試合は行われた。』の『しかし』の働きは？",["理由を示す","順番を示す","逆接を示す","例を示す"],2,"『しかし』は前と反対の流れ（逆接）を示します。"],
+["『けんきゅう』を漢字で書くと？",["研級","研究","見究","検休"],1,"研究は物事を深く調べて明らかにすること。"],
+["『説得』の読み方は？",["せっとく","せいとく","せつとく","せんとく"],2,"説得（せっとく）ではなく『せっとく』が標準の読みです。"],
+["『具体的』の反対語は？",["個人的","抽象的","直接的","一般的"],1,"具体的⇔抽象的。"],
+["『改めて』の意味に近いのは？",["もう一度、別の機会に","突然","決して","必ず失敗して"],0,"『改めて』はもう一度、あらためて行うこと。"],
+["『十分』を『じゅうぶん』と読むときの意味は？",["10分間だけ","不足がないこと","3時間","ちょうど半分"],1,"十分（じゅうぶん）は、必要なだけ満たされていること。"],
+["『興味』の読み方は？",["きょうあじ","こうみ","きょうみ","こうあじ"],2,"興味（きょうみ）。"],
+["『推測』の読み方は？",["すいそく","すいさく","ついそく","すいせき"],0,"推測（すいそく）。"],
+],
+"理科":[
+["植物が光を使って栄養をつくる働きは？",["呼吸","蒸発","光合成","消化"],2,"光合成では光、水、二酸化炭素などを使い有機物をつくります。"],
+["水が氷になる温度は？（通常の気圧）",["−10℃","0℃","50℃","100℃"],1,"純粋な水は通常の気圧で約0℃で凍ります。"],
+["電流の単位は？",["ボルト","ワット","アンペア","メートル"],2,"電流はアンペア（A）。電圧はボルト（V）。"],
+["地球が太陽の周りを一周する運動は？",["自転","公転","振動","反射"],1,"公転は太陽の周りを回ること。自転は地軸の周りを回ること。"],
+["音が伝わらないのは？",["空気中","水中","金属中","真空中"],3,"音は物質の振動が伝わる現象なので、真空中では伝わりません。"],
+["二酸化炭素の化学式は？",["O₂","CO₂","H₂O","N₂"],1,"CO₂ は炭素1個と酸素2個。"],
+["食塩を水に溶かしたとき、食塩は？",["消滅する","水中に分散する","すべて水面に浮く","必ず沈む"],1,"食塩は水中に粒子として分散し、消えるわけではありません。"],
+["昆虫の足は何本？",["4本","6本","8本","10本"],1,"昆虫の成虫には基本的に足が6本あります。"],
+["月が光って見える主な理由は？",["月が自分で燃えている","太陽光を反射する","地球の光を発する","星の光を吸収する"],1,"月は主に太陽の光を反射して光って見えます。"],
+["鉄がさびるときに関わる気体は？",["酸素","窒素","ヘリウム","水素"],0,"鉄がさびる酸化には酸素と水分が関わります。"],
+["ヒトが息を吸うとき、横隔膜は主にどうなる？",["上がる","下がる","消える","止まる"],1,"横隔膜が収縮して下がり、胸の中の容積が増えます。"],
+["気体の体積は一般に温めると？（圧力一定）",["小さくなる","変わらない","大きくなる","必ず0になる"],2,"気体は温めると膨張する傾向があります。"],
+["地震の最初の小さな揺れは？",["主要動","初期微動","津波","余震"],1,"P波により初期微動が起こり、その後S波による主要動が続きます。"],
+["レンズで光を集める点は？",["交点","焦点","支点","原点"],1,"凸レンズの焦点は平行光線が集まる点です。"],
+["水の沸点は？（通常の気圧）",["0℃","50℃","100℃","200℃"],2,"純粋な水は1気圧で約100℃で沸騰します。"],
+["酸性の水溶液に青色リトマス紙を入れると？",["赤色になる","青色のまま","緑色になる","透明になる"],0,"酸性の水溶液では青色リトマス紙が赤色になります。"],
+["昼夜が生じる主な理由は？",["地球の自転","月の公転","潮の満ち引き","雲の移動"],0,"地球が自転するので太陽に照らされる側が入れ替わります。"],
+["消化に関わる器官は？",["胃","心臓","肺","脳"],0,"胃は食べ物を消化する器官の一つです。"],
+],
+"社会":[
+["日本で面積が最も大きい都道府県は？",["東京都","北海道","岩手県","長野県"],1,"北海道は都道府県の中で最も面積が大きいです。"],
+["地域の人口が減り続けることは？",["過密","過疎","貿易","都市化"],1,"過疎は人口が減り地域の活力が低下すること。"],
+["外国から品物を買って国内に入れることは？",["輸出","輸入","生産","消費"],1,"輸入は外国から買うこと。輸出は外国へ売ること。"],
+["日本の国会の主な役割は？",["法律をつくる","裁判をする","逮捕する","天気を予報する"],0,"国会は国の唯一の立法機関です。"],
+["三権分立で司法を担うのは？",["内閣","国会","裁判所","地方議会"],2,"立法は国会、行政は内閣、司法は裁判所。"],
+["日本海に面している都道府県は？",["千葉県","石川県","静岡県","愛知県"],1,"石川県は日本海に面しています。"],
+["東北地方に含まれる県は？",["岐阜県","山口県","宮城県","愛媛県"],2,"宮城県は東北地方の県です。"],
+["地図で上が北のとき、右はどの方角？",["西","東","南","北西"],1,"北が上なら右は東、左は西。"],
+["鎌倉幕府が開かれた時代は？",["奈良時代","平安時代末～鎌倉時代初め","江戸時代","明治時代"],1,"鎌倉幕府の成立は12世紀末ごろ。成立年には諸説・区切りがあります。"],
+["江戸幕府を開いた人物は？",["織田信長","徳川家康","豊臣秀吉","聖徳太子"],1,"徳川家康が1603年に征夷大将軍に任じられました。"],
+["都道府県の知事はどのように選ばれる？",["世襲","国民全員のくじ","住民の選挙","内閣が必ず指名"],2,"都道府県知事はその自治体の有権者による直接選挙で選ばれます。"],
+["赤道に近い地域の気候として多いのは？",["熱帯","寒帯","氷雪気候のみ","ツンドラ気候のみ"],0,"赤道に近い地域には熱帯の気候が多く見られます。"],
+["外国に商品を売ることは？",["輸入","輸出","消費","投資"],1,"輸出は国内から国外へ商品を売ることです。"],
+["『憲法』の役割として最も近いのは？",["国の基本的な決まりを定める","店の営業時間を決める","天気を決める","テストの採点をする"],0,"日本国憲法は国の統治のしくみや基本的人権などの基本を定めます。"],
+["日本の標準時子午線が通る市として知られるのは？",["札幌市","明石市","長崎市","那覇市"],1,"兵庫県明石市を東経135度の標準時子午線が通ります。"],
+["再生可能エネルギーにあたるのは？",["石炭","石油","太陽光","天然ガス"],2,"太陽光や風力などは再生可能エネルギーです。"],
+["需要が増え、供給が同じとき、価格は一般に？",["上がりやすい","必ず0になる","下がりやすい","変わらないと決まっている"],0,"ほかの条件が同じなら需要の増加は価格を上げる方向に働きます。"],
+["アジア州に位置する国は？",["ブラジル","エジプト","タイ","フランス"],2,"タイは東南アジアの国です。"],
+]};
+BANK["国語"][12]=["『説得』の読み方は？",["せっとく","せいとく","せつとく","せんとく"],0,"説得（せっとく）。相手に理由を説明し、納得してもらうこと。"]
+const ENGLISH_TOPICS=[
+ {title:'still / yet / always',subtitle:'「まだ」「もう」「いつも」を会話で使おう',context:'宿題・毎日の習慣について話す',days:[
+  {title:'基本の意味',goal:'3つの言葉の意味をつかもう',phrases:[
+   ['I am still doing my homework.','私はまだ宿題をしています。','still は「状態や動作が続いている」。'],
+   ["I haven't finished yet.",'私はまだ終わっていません。','yet は否定文で「まだ」、疑問文で「もう」。'],
+   ['I always eat breakfast.','私はいつも朝ごはんを食べます。','always は習慣や頻度を表す。']],
+   quiz:[['「私はまだ宿題をしています」に合うのは？',['I am still doing my homework.','I am yet doing my homework.','I always did homework.','I am doing yet my homework.'],0,'続いている動作には still を使います。'],['「まだ終わっていません」は？',["I haven't finished yet.","I haven't finished always.","I am finished still.","I finished yet."],0,'否定文の yet は「まだ〜していない」。'],['「私はいつも朝食を食べます」は？',['I still eat breakfast.','I eat breakfast yet.','I always eat breakfast.','I never eat breakfast.'],2,'習慣の「いつも」には always。']],
+   live:'短い質問に一文で答える練習',missions:['宿題が終わったか答える','毎朝することを話す','まだ続けていることを話す']},
+  {title:'使い分け',goal:'同じ表現を別の文でも使おう',phrases:[
+   ['Are you still studying?','まだ勉強していますか？','still は質問でも使える。'],
+   ['Have you finished your homework yet?','もう宿題は終わりましたか？','疑問文の yet は「もう」。'],
+   ['I always walk to school.','私はいつも歩いて学校に行きます。','always は一般動詞の前に置くのが基本。']],
+   quiz:[['Are you ___ studying?',['always','yet','still','never'],2,'勉強が続いているか尋ねるので still。'],['Have you finished your homework ___?',['yet','always','still','never'],0,'「もう終わった？」という質問には yet。'],['I ___ walk to school.',['yet','always','still','already'],1,'普段の習慣なので always。']],
+   live:'自分の習慣を短く説明する練習',missions:['「もう終わった？」に答える','学校への行き方を話す','まだ続けていることを言う']},
+  {title:'質問してみる',goal:'自分からも質問できるようになろう',phrases:[
+   ['Are you still waiting?','まだ待っていますか？','Are you still + 〜ing?'],
+   ['Have you eaten lunch yet?','もう昼食を食べましたか？','Have you + 過去分詞 + yet?'],
+   ['Do you always get up early?','いつも早起きしますか？','Do you always + 動詞の原形?']],
+   quiz:[['「まだ待っていますか？」は？',['Are you yet waiting?','Do you always wait?','Are you still waiting?','Have you waited yet?'],2,'いま待つ動作が続いているか聞きます。'],['「もう昼食を食べましたか？」は？',['Have you eaten lunch yet?','Are you eating lunch always?','Do you still lunch?','Have you lunch always?'],0,'完了したかどうかを聞くので yet。'],['「いつも早起きしますか？」は？',['Are you still getting up?','Do you always get up early?','Have you gotten up yet?','Are you always early yet?'],1,'習慣を質問するとき Do you always ...?。']],
+   live:'AIへの質問も1回ずつ自分で言う',missions:['AIに毎朝の習慣を質問する','AIに昼食を食べたか尋ねる','AIが聞き返したら答える']},
+  {title:'返事を広げる',goal:'一文だけでなく理由も添えよう',phrases:[
+   ["Not yet. I'm still working on it.",'まだです。まだ取り組んでいます。','not yet は短い返事としても便利。'],
+   ["I don't always get up early.",'私はいつも早起きするわけではありません。','not always は「いつも〜とは限らない」。'],
+   ["I'm still hungry because I ate little.",'少ししか食べなかったので、まだお腹がすいています。','because で理由を追加。']],
+   quiz:[['「まだです。取り組んでいます」に合うのは？',["Not yet. I'm still working on it.","Always. I'm yet working.","Still. I haven't always.","Not always. I'm finished."],0,'not yet と still を組み合わせた自然な返答です。'],["I don't always get up early. の意味は？",['私は決して早起きしません。','私はいつも早起きするわけではありません。','私はまだ起きていません。','私はもう早起きしました。'],1,'not always は「いつもそうとは限らない」。'],['「お腹がすいている理由」を続ける語は？',['yet','always','because','still'],2,'because は「なぜなら〜だから」を表します。']],
+   live:'返事を2文にして、理由を加える',missions:['まだ終わっていないことを説明する','習慣について「いつもとは限らない」と答える','because を使って理由を付ける']},
+  {title:'会話チャレンジ',goal:'ヒントを減らして2〜3往復しよう',phrases:[
+   ['I still want to practice.','私はまだ練習したいです。','still は気持ちにも使える。'],
+   ["I haven't decided yet.",'私はまだ決めていません。','yet で未完了を伝える。'],
+   ['I always try my best.','私はいつもベストを尽くします。','always で普段の姿勢を話せる。']],
+   quiz:[['「まだ決めていません」は？',["I haven't decided yet.","I haven't decided always.","I don't yet decided.","I am still decide."],0,'現在完了の否定文と yet で未完了を表します。'],['「まだ練習したい」は？',['I want yet practice.','I always practice yesterday.','I still want to practice.','I have yet want practice.'],2,'気持ちが続いているので still が自然。'],['「いつもベストを尽くします」は？',['I still try yesterday.','I always try my best.','I have tried yet my best.','I never try my best.'],1,'普段の姿勢を表すので always。']],
+   live:'宿題と日常生活について3往復の会話に挑戦',missions:['今日の宿題の状態を説明する','普段の習慣を自分から話す','still / yet / always を全部使ってみる']}
+ ]},
+ {title:'学校と好きなこと',subtitle:'好き・得意・苦手を伝える',context:'学校や趣味の話をする',days:[
+  {title:'好きなもの',goal:'自分の好きなことを伝えよう',phrases:[['I like drawing.','絵を描くのが好きです。','like + 〜ing で好きな活動。'],['My favorite subject is English.','好きな教科は英語です。','favorite subject は好きな教科。'],["I'm good at science.",'私は理科が得意です。','be good at + 名詞または〜ing。']],quiz:[['「絵を描くのが好きです」は？',['I like draw.','I like drawing.','I like drew.','I drawing like.'],1,'like の後に動名詞 drawing を置けます。'],['「好きな教科は英語です」は？',['My favorite subject is English.','My subject likes English.','My favorite is study English.','I subject English favorite.'],0,'My favorite subject is ... の形。'],['「理科が得意です」は？',["I'm good to science.","I'm nice at science.","I'm good with science at.","I'm good at science."],3,'be good at ... は「〜が得意」。']],live:'好きな教科と趣味を一文ずつ答える',missions:['好きな活動を言う','好きな教科を答える','得意なことを話す']},
+  {title:'苦手と興味',goal:'好きだけでなく苦手や興味も言おう',phrases:[["I don't like math very much.",'数学はあまり好きではありません。','not ... very much は「あまり〜ない」。'],["I'm interested in history.",'歴史に興味があります。','be interested in ... で興味。'],['I want to learn coding.','プログラミングを学びたいです。','want to + 動詞で希望。']],quiz:[['「歴史に興味があります」は？',["I'm interest at history.","I'm interested in history.","I interest history.","I'm interesting in history."],1,'人が興味を持つ場合は interested in。'],['「プログラミングを学びたい」は？',['I want learning coding.','I wanting coding.','I want to learn coding.','I want learned coding.'],2,'want to の後は動詞の原形。'],['「数学はあまり好きではない」は？',["I don't like math very much.","I always like math.","I don't never like math.","I math not like very."],0,'not ... very much で「あまり〜ない」。']],live:'得意・苦手・興味を短く話す',missions:['得意と苦手を各1つ言う','興味があることを説明する','学びたいことを話す']},
+  {title:'相手に質問',goal:'相手のことを尋ねよう',phrases:[['What do you like doing?','何をするのが好きですか？','like doing で好きな活動を尋ねる。'],['Which subject do you like best?','どの教科がいちばん好きですか？','which で選択肢から質問。'],['Why do you like it?','なぜそれが好きなのですか？','why で理由を尋ねる。']],quiz:[['「なぜそれが好きなの？」は？',['When do you like it?','Where do you like it?','Why do you like it?','Which like it?'],2,'理由を尋ねる疑問詞は why。'],['「何をするのが好き？」は？',['What do you like doing?','What you like doing?','What do you like do yesterday?','What are you like?'],0,'What do you like doing? が自然。'],['「どの教科がいちばん好き？」は？',['What subject you best?','Which subject do you like best?','Do you best subjects?','Which do you like subject?'],1,'Which subject do you like best?。']],live:'AIに質問を2回する',missions:['AIの好きなことを尋ねる','理由を聞き返す','自分の好きなことも話す']},
+  {title:'理由を添える',goal:'because で理由を付け加えよう',phrases:[["I like it because it's fun.",'楽しいので好きです。','because で理由を話す。'],["I'm not very good at it yet.",'私はまだそれがあまり得意ではありません。','yet は「まだ」できない状態に使える。'],['I want to get better.','もっと上達したいです。','get better は上達する。']],quiz:[['「楽しいから好き」は？',["I like it because it's fun.","I like it yet fun.","I like it so because.","I like because it fun."],0,'because の後ろは理由の文。'],['「まだあまり得意ではない」は？',["I'm still very good yet.","I'm not very good at it yet.","I'm not good yet at very.","I am no good still it."],1,'not ... yet で「まだ〜ではない」。'],['「もっと上達したい」は？',['I want to better get.','I want bettering.','I want to get better.','I want got better.'],2,'want to + 動詞の原形 get。']],live:'好き・苦手の理由も説明する',missions:['好きな科目と理由を言う','苦手だけど頑張りたいことを話す','質問されて2文で答える']},
+  {title:'学校の会話',goal:'自分から話題を広げよう',phrases:[['I usually read after school.','放課後はたいてい読書します。','usually は「たいてい」。'],['I prefer English to math.','数学より英語が好きです。','prefer A to B で好みを比較。'],["I'd like to try something new.",'何か新しいことをやってみたいです。',"I'd like to は丁寧な希望。"]],quiz:[['「数学より英語が好き」は？',['I prefer English than math.','I prefer English to math.','I prefer English with math.','I prefer math to English.'],1,'prefer A to B はBよりAが好き。'],['「放課後はたいてい読書する」は？',['I still read yesterday.','I read yet after school.','I usually read after school.','I am read after school.'],2,'usually は普段の習慣の頻度。'],['「新しいことをやってみたい」は？',["I'd like to try something new.","I want trying something new.","I like try something now.","I'd like something to new try."],0,"I'd like to + 動詞の原形。"]],live:'学校のことを3往復話す',missions:['好きな教科と理由を言う','相手にも質問する','やってみたいことを話す']}
+ ]},
+ {title:'週末の出来事と予定',subtitle:'「何をした」「何をする」を話す',context:'週末の出来事と予定を伝える',days:[
+  {title:'昨日のこと',goal:'過去の出来事を短く言おう',phrases:[['I watched a movie yesterday.','昨日映画を見ました。','watch の過去形 watched。'],['I went to the park.','公園に行きました。','go の過去形 went。'],['It was fun.','楽しかったです。','is の過去形 was。']],quiz:[['「昨日映画を見た」は？',['I watch a movie yesterday.','I watched a movie yesterday.','I watching a movie yesterday.','I have watch yesterday.'],1,'yesterday とともに過去形 watched。'],['go の過去形は？',['goed','gone','going','went'],3,'go は不規則変化で went。'],['「楽しかったです」は？',['It was fun.','It is fun yesterday.','It be fun.','It were fun.'],0,'過去のことなので was。']],live:'昨日の出来事を一文ずつ話す',missions:['昨日したことを言う','行った場所を話す','楽しかったか答える']},
+  {title:'何もしなかった日',goal:'否定文でも週末を説明しよう',phrases:[["I didn't go anywhere.",'どこにも行きませんでした。','didn’t の後は動詞の原形。'],['I played a game.','ゲームをしました。','play の過去形 played。'],['I stayed at home.','家で過ごしました。','stay の過去形 stayed。']],quiz:[['「どこにも行かなかった」は？',["I didn't went anywhere.","I didn't go anywhere.","I don't went anywhere.","I wasn't go anywhere."],1,"didn't の後は go の原形。"],['「家で過ごした」は？',['I stay at home yesterday.','I have stay home.','I stayed at home.','I am stayed home.'],2,'過去形の stayed を使います。'],['「ゲームをした」は？',['I played a game.','I play a game yesterday.','I am play a game.','I was play a game.'],0,'play の過去形 played。']],live:'家で過ごした日も自然に説明する',missions:['週末の過ごし方を言う','出かけなかったことを説明する','どんな気持ちだったか話す']},
+  {title:'質問してみる',goal:'相手の週末も聞いてみよう',phrases:[['What did you do last weekend?','先週末は何をしましたか？','did の後は do の原形。'],['Did you enjoy it?','楽しめましたか？','Did you ...? は過去の質問。'],['Where did you go?','どこに行きましたか？','Where did you go? で場所を聞く。']],quiz:[['「先週末は何をした？」は？',['What did you do last weekend?','What did you did last weekend?','What do you last weekend?','What you did last weekend?'],0,'did の後の do は原形。'],['「どこに行った？」は？',['Where did you went?','Where have you go yesterday?','Where did you go?','Where you did go?'],2,'did の後は go の原形。'],['「楽しめましたか？」は？',['Did you enjoyed it?','Did you enjoy it?','Do you enjoyed it?','Was you enjoyed it?'],1,'Did you + 動詞の原形 enjoy。']],live:'AIに週末の話を質問する',missions:['AIに週末の出来事を聞く','楽しかったかを尋ねる','自分の週末も話す']},
+  {title:'これからの予定',goal:'未来の予定を話そう',phrases:[["I'm going to visit my friend.",'友達を訪ねる予定です。','be going to + 動詞の原形。'],["I'd like to watch a movie.",'映画を見たいです。',"I'd like to は希望を表す。"],['I am planning to study.','勉強する予定を立てています。','be planning to で計画中のこと。']],quiz:[['「友達を訪ねる予定」は？',["I'm going to visiting my friend.","I going to visit my friend.","I'm going to visit my friend.","I am go visit my friend."],2,'be going to の後は動詞の原形。'],['「映画を見たい」は？',["I'd like to watch a movie.","I'd like watching to movie.","I like to movie watch.","I want watching a movie."],0,"I'd like to + watch。"],['「勉強する予定を立てている」は？',['I planning studying.','I am planning to study.','I plan to studying.','I am planned study.'],1,'planning to の後は動詞の原形。']],live:'予定とその理由を2文で話す',missions:['次の週末の予定を伝える','それを楽しみにしている理由を言う','相手にも予定を尋ねる']},
+  {title:'週末チャレンジ',goal:'過去と未来をつないで話そう',phrases:[['Last weekend, I stayed home.','先週末は家にいました。','Last weekend で過去の話を始める。'],["Next weekend, I'm going to play tennis.",'来週末はテニスをする予定です。','Next weekend で未来の予定。'],['What about you?','あなたはどうですか？','会話を相手に返す便利な質問。']],quiz:[['「来週末はテニスをする予定」は？',["Next weekend, I went to play tennis.","Next weekend, I'm going to play tennis.","Last weekend, I am playing tennis.","Next weekend, I played tennis."],1,'未来の予定には be going to が使えます。'],['「先週末は家にいた」は？',['Last weekend, I stay home.','Next weekend, I stayed home.','Last weekend, I stayed home.','Last weekend, I will stayed home.'],2,'過去の出来事は stayed。'],['相手にも「あなたは？」と聞くには？',['What about you?','What do you?','Are about you?','What with your?'],0,'What about you? は話を相手に返せます。']],live:'過去と予定について3〜4往復する',missions:['先週末にしたことを話す','次の週末の予定を言う','最後に What about you? で質問する']}
+ ]}
+];
+
+"use strict";
+const el=document.getElementById('app');
+const CONFIG=window.MOE_CONFIG||{};
+const isConfigured=!!(CONFIG.supabaseUrl&&CONFIG.supabaseAnonKey);
+let db=null, authUser=null, role=isConfigured?'guest':'demo', learnerId=null, learnerName='もえ';
+let draftReview=null;
+let busy=false, view='home', engPage='phrases', engCursor=0, fiveCursor=0, selectedLesson=null, flash='';
+const demoKey='moe-cloud-mvp-demo-v3';
+const blank=()=>({five:[],english:[],done:[],reviews:[]});
+let state=blank();
+const SUBJECTS=['英語','数学','国語','理科','社会'];
+const maxLessons=ENGLISH_TOPICS.length*5;
+const nowDay=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const formatDay=s=>s?String(s).replaceAll('-','/'):'—';
+const viewDate=()=>new Intl.DateTimeFormat('ja-JP',{month:'long',day:'numeric',weekday:'short'}).format(new Date());
+const E=(id)=>document.getElementById(id);
+const logError=(error)=>{console.error(error);flash='保存・読み込みに失敗しました。通信状態と設定を確認してください。';render()};
+function hash(str){let n=2166136261;for(let i=0;i<str.length;i++){n^=str.charCodeAt(i);n=Math.imul(n,16777619)}return n>>>0}
+function rng(seed){return ()=>{seed+=0x6D2B79F5;let t=seed;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296}}
+function shuffle(list,r){const a=[...list];for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+const fivePlan=(day)=>SUBJECTS.flatMap(subject=>{
+ const r=rng(hash('v3:'+day+':'+subject));return shuffle(BANK[subject].map((_,i)=>i),r).slice(0,3).map((question_id,question_no)=>({subject,question_id,question_no}));
+});
+const lessonByNo=no=>({topic:Math.floor(no/5),day:no%5,lesson:ENGLISH_TOPICS[Math.floor(no/5)]?.days[no%5],name:ENGLISH_TOPICS[Math.floor(no/5)]?.title});
+const getReview=no=>state.reviews.find(r=>r.lesson_no===no);
+const getDone=no=>state.done.find(r=>r.lesson_no===no);
+const getEngAnswers=no=>state.english.filter(a=>a.lesson_no===no);
+function engStatus(){const sorted=[...state.done].sort((a,b)=>a.lesson_no-b.lesson_no);const last=sorted.at(-1);
+ if(!last)return {no:0,doneToday:false,allDone:false};
+ if(last.study_day===nowDay())return {no:last.lesson_no,doneToday:true,allDone:false};
+ if(last.lesson_no===maxLessons-1)return {no:maxLessons-1,doneToday:true,allDone:true};
+ return {no:last.lesson_no+1,doneToday:false,allDone:false};
+}
+function saveDemo(){if(role==='demo')localStorage.setItem(demoKey,JSON.stringify(state))}
+function enterDemo(){role='demo';authUser=null;learnerId=null;let loaded=null;try{loaded=JSON.parse(localStorage.getItem(demoKey)||'null')}catch{}state=loaded&&['five','english','done','reviews'].every(k=>Array.isArray(loaded[k]))?loaded:blank();view='home';flash='これは体験版です。データはこの端末だけに保存されます。';render()}
+async function loadTable(t){let out=[];for(let from=0;from<5000;from+=500){const {data,error}=await db.from(t).select('*').range(from,from+499);if(error)throw error;out.push(...data);if(data.length<500)break;}return out}
+// History tables retain every attempt in PostgreSQL. The UI must show only the
+// latest attempt per question, otherwise retries inflate progress and scores.
+function latestPerQuestion(rows,fields){
+ const sorted=[...rows].sort((a,b)=>{
+  const t=String(b.created_at||'').localeCompare(String(a.created_at||''));
+  return t||String(b.id||'').localeCompare(String(a.id||''));
+ });
+ const seen=new Set();
+ return sorted.filter(row=>{const key=fields.map(k=>String(row[k])).join('|');
+  if(seen.has(key))return false;seen.add(key);return true;
+ });
+}
+async function loadCloud(){if(!db||!learnerId)throw new Error('認証されていません');
+ const [five,english,done,reviews]=await Promise.all(['five_answers','english_answers','english_completions','live_reviews'].map(loadTable));
+ // Keep raw attempts for future history views; current UI uses deduplicated answers.
+ state={five:latestPerQuestion(five,['study_day','subject','question_no']),
+  english:latestPerQuestion(english,['lesson_no','question_no']),done,reviews,
+  fiveAttemptHistory:five,englishAttemptHistory:english};
+}
+async function enterCloud(user){authUser=user;flash='';
+ try{
+ const {data:links,error:le}=await db.from('guardian_links').select('learner_id').eq('guardian_id',user.id);if(le)throw le;
+ if(links.length){role='guardian';learnerId=links[0].learner_id}
+ else {const {data:student,error:se}=await db.from('learners').select('id,nickname').eq('id',user.id).maybeSingle();if(se)throw se;
+  if(!student){role='unlinked';learnerId=null;state=blank();view='home';render();return}
+  role='student';learnerId=user.id;learnerName=student.nickname||'もえ'
+ }
+ const {data:learner,error:ne}=await db.from('learners').select('nickname').eq('id',learnerId).single();if(ne)throw ne;
+ learnerName=learner.nickname;
+ await loadCloud();view=role==='guardian'?'guardian':'home';render();
+ }catch(e){role='error';learnerId=null;state=blank();flash='接続中にエラーが発生しました: '+String(e.message||e);render()}
+}
+async function init(){if(isConfigured){try{if(!window.supabase){await new Promise((resolve,reject)=>{const tag=document.createElement('script');tag.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';tag.onload=resolve;tag.onerror=()=>reject(new Error('Supabase SDKの取得に失敗しました'));document.head.appendChild(tag)})}db=window.supabase.createClient(CONFIG.supabaseUrl,CONFIG.supabaseAnonKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+ const {data,error}=await db.auth.getUser();if(error&&error.name!=='AuthSessionMissingError')console.warn(error);
+ if(data?.user){await enterCloud(data.user);return}
+ role='guest';render();return;
+ }catch(e){role='error';flash='設定されたSupabaseに接続できません: '+String(e.message||e);render();return}}
+ if(isConfigured){role='error';flash='SupabaseのJavaScriptライブラリを読み込めませんでした。通信を確認してください。';render();return}
+ enterDemo();
+}
+async function send(table,row,conflict=null){if(busy)return false;busy=true;try{
+ if(role==='student'){
+  const query=conflict?db.from(table).upsert(row,{onConflict:conflict}):db.from(table).insert(row);
+  const {error}=await query;if(error)throw error;
+  await loadCloud();
+ }else if(role==='demo'){
+  const type={five_answers:'five',english_answers:'english',english_completions:'done',live_reviews:'reviews'}[table];
+  const keys={five_answers:['study_day','subject','question_no'],english_answers:['lesson_no','question_no'],english_completions:['lesson_no'],live_reviews:['lesson_no']}[table];
+  const i=state[type].findIndex(x=>keys.every(k=>x[k]===row[k]));
+  if(i>=0)state[type][i]={...state[type][i],...row};else state[type].push({...row});saveDemo();
+ }
+ flash='保存しました';return true;
+ }catch(e){flash='保存できませんでした: '+String(e.message||e);return false}finally{busy=false;render()}
+}
+const header=()=>`<header class="top"><div><div class="brand">✦ もえのまいにち学習</div><div class="date">${esc(viewDate())}</div></div><div class="top-right"><span class="cloud-badge ${['student','guardian'].includes(role)?'connected':''}">${role==='student'?'☁ クラウド保存':role==='guardian'?'☁ 保護者':role==='demo'?'端末内のみ':'未接続'}</span></div></header>`;
+const navigation=()=>['student','demo','guardian'].includes(role)?`<nav class="nav">${role==='guardian'?`<button data-nav="guardian" class="${view==='guardian'?'selected':''}">学習レポート</button>`:`<button data-nav="home" class="${view==='home'?'selected':''}">ホーム</button><button data-nav="history" class="${view==='history'?'selected':''}">学習履歴</button>`}${isConfigured?'<button data-nav="account">アカウント</button>':''}</nav>`:'';
+const toast=()=>flash?`<div class="message" role="status">${esc(flash)}</div>`:'';
+function render(){const page=role==='guest'?'login':role==='unlinked'?'unlinked':role==='error'?'error':view;
+ el.innerHTML=header()+navigation()+toast()+({login:renderLogin,unlinked:renderUnlinked,error:renderError,home:renderHome,phrases:renderPhrases,'english-quiz':renderEnglishQuiz,live:renderLive,five:renderFive,fiveSummary:renderFiveSummary,history:renderHistory,guardian:renderGuardian,account:renderAccount}[page]||renderHome)()+`<div class="footer-note">学習は少しずつでOK。点数より「わかった！」を大事にしよう。</div>`;
+ el.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{flash='';view=b.dataset.nav;render()});
+ bind(page)
+}
+function renderLogin(){return `<section class="hero"><p class="eyebrow">クラウド学習</p><h1>おかえりなさい 🌷</h1><p>自分の学習記録を保存して、次の日も続きから始めよう。</p></section><section class="card"><h2 class="section-title">ログイン</h2><form id="loginForm"><div class="form-row"><label for="loginEmail">メールアドレス</label><input id="loginEmail" class="field" type="email" autocomplete="username" required></div><div class="form-row"><label for="loginPassword">パスワード</label><input id="loginPassword" class="field" type="password" autocomplete="current-password" required></div><button class="primary" type="submit">ログイン</button></form><p class="muted">初回のアカウント登録・保護者との紐づけは管理者が行います。</p><button class="secondary" id="demoStart" style="width:100%">ログインせずに体験する（端末保存）</button></section>`}
+function renderUnlinked(){return `<section class="card"><h2 class="section-title">アカウントの紐づけが必要です</h2><p class="muted">ログインはできていますが、学習者または保護者として登録されていません。Supabaseの管理者設定をご確認ください。</p><button class="secondary" id="logout">ログアウト</button></section>`}
+function renderError(){return `<section class="card"><h2 class="section-title">接続を確認してください</h2><p class="error">${esc(flash||'接続エラー')}</p><button class="secondary" id="retry">再読み込み</button>${db?'<button class="secondary" id="logout">ログアウト</button>':''}</section>`}
+function renderAccount(){return `<section class="card"><h2 class="section-title">アカウント</h2><p class="muted">現在: ${esc(authUser?.email||'体験モード')}</p><p class="section-note">本人の学習データは本人と紐づけた保護者だけが参照できます。端末体験モードのデータは自動的にクラウドへ移行しません。</p>${authUser?'<button class="secondary" id="logout">ログアウト</button>':isConfigured?'<button class="secondary" id="backToLogin">クラウドのログイン画面に戻る</button>':'<p class="muted">クラウドはまだ設定されていません。</p>'}</section>`}
+function renderHome(){const st=engStatus(),info=lessonByNo(st.no),today=nowDay();const five=state.five.filter(x=>x.study_day===today);const score=five.filter(x=>x.correct).length;const myEng=state.english.filter(x=>x.lesson_no===st.no);
+ const last=state.done.toSorted((a,b)=>b.lesson_no-a.lesson_no)[0];
+ return `<section class="hero"><p class="eyebrow">毎日ちょっとずつ進もう</p><h1>今日も、ひとつ<br>できた！を増やそう ✨</h1><p>フレーズを覚えて、Liveで話してみよう。5教科のおさらいもできるよ。</p></section>
+ <section class="english-card"><div class="eng-head"><span class="eng-tag">英語 × ChatGPT Live</span><span class="muted">5日間で1テーマ</span></div><h2 class="eng-card-h">${esc(info.name)}</h2><p class="eng-detail">${esc(info.lesson?.goal||'英語の復習')}<br><strong>DAY ${info.day+1} / 5</strong>　${esc(info.lesson?.title||'')}</p><div class="eng-week">${ENGLISH_TOPICS[info.topic].days.map((d,i)=>`<div class="eng-day ${i===info.day?'current':''} ${i<info.day?'done':''}">DAY<br>${i+1}</div>`).join('')}</div><div class="meta"><span>英語クイズ ${myEng.length}/3 問</span><span>完了 ${state.done.length}/${maxLessons} 日</span></div><button class="eng-primary" id="goEnglish">${st.doneToday?'今日の学習を見直す':'今日の英語をはじめる'}</button>${last&&getReview(last.lesson_no)===undefined?'<button class="eng-secondary" id="reviewLast" style="margin-top:8px">前回のLive評価を登録する</button>':''}<span class="eng-foot">${st.allDone?'全15レッスンを修了！ 復習できます。':'途中でお休みしても、次は続きから始められます。'}</span></section>
+ <section class="card"><h2 class="section-title">5教科チェック</h2><div class="subjects">${SUBJECTS.map(s=>`<span class="subject-pill ${five.filter(a=>a.subject===s).length===3?'done':''}">${esc(s)}</span>`).join('')}</div><div class="progress"><div class="bar" style="width:${Math.round(five.length/15*100)}%"></div></div><div class="meta"><span>${five.length}/15 問回答</span><span>${score} 問正解</span></div><button class="primary" id="goFive">${five.length===15?'今日の成績を見る':five.length?'続きから学習':'15問を始める'}</button></section><section class="notice">${role==='demo'?'この体験モードの履歴は端末内だけに保存されます。':'回答・評価を保存するにはインターネット接続が必要です。'}</section>`
+}
+function renderPhrases(){const no=selectedLesson??engStatus().no,{name,day,lesson}=lessonByNo(no);if(!lesson)return '<div class="empty">レッスンがありません</div>';
+ return `<div class="eng-step">STEP 1 · フレーズを覚える</div><h1 class="eng-h1">${esc(name)} <span class="pill">DAY ${day+1}</span></h1><p class="eng-sub">${esc(lesson.goal)}</p><section class="card">${lesson.phrases.map((ph,i)=>`<div class="phrase-card"><div class="eng-step">PHRASE ${i+1}</div><div class="phrase-en">${esc(ph[0])}</div><div class="phrase-ja">${esc(ph[1])}</div><div class="phrase-tip">${esc(ph[2])}</div><button data-speak="${i}">🔊 発音を聞く</button></div>`).join('')}<button class="eng-primary" id="toEnglishQuiz">3問クイズへ</button><button class="ghost" id="home">← ホームに戻る</button></section>`;
+}
+function renderEnglishQuiz(){const no=selectedLesson??engStatus().no,{lesson}=lessonByNo(no),rows=getEngAnswers(no);const qno=engCursor;
+ if(qno>=3)return renderLive();const q=lesson.quiz[qno],a=rows.find(x=>x.question_no===qno),answered=!!a;
+ return `<div class="eng-step">STEP 2 · 英語クイズ</div><h1 class="eng-h1">${esc(lesson.title)}</h1><section class="card"><p class="count">${qno+1} / 3 問</p><h2 class="question">${esc(q[0])}</h2><div class="options">${q[1].map((c,i)=>`<button class="option ${answered&&i===q[2]?'correct':''} ${answered&&i===a.choice_index&&!a.correct?'incorrect':''}" data-engchoice="${i}" ${answered?'disabled':''}><span class="abc">${String.fromCharCode(i+65)}</span><span>${esc(c)}</span></button>`).join('')}</div>${answered?`<div class="feedback ${a.correct?'':'wrong'}"><strong>${a.correct?'その調子！':'ここを覚えておこう'}</strong>${esc(q[3])}</div><button class="eng-primary" id="engNext">${qno===2?'Live英会話へ':'次へ'}</button>`:''}<button class="ghost" id="home">← ホームに戻る</button></section>`;
+}
+function englishPrompt(no){const {name,day,lesson}=lessonByNo(no);const level=['短い一文で答える練習から始めてください。','短い追加質問をしてください。','本人から質問する機会を最低2回つくってください。','because で理由を言わせてください。','ヒントを減らして3～4往復、会話してください。'][day];
+ return `あなたは中学2年生向けのやさしい英会話の先生です。ChatGPT Liveで約5分練習します。\nテーマ：${name}（DAY ${day+1}/5）\n目標：${lesson.goal}\n練習するフレーズ：\n${lesson.phrases.map((p,i)=>`${i+1}. ${p[0]}`).join('\n')}\nミッション：${lesson.missions.join('／')}\n進め方：一度に質問を1つだけ。ゆっくり英語で話し、考える時間をとってください。${level}間違いを訂正するときは自然な例文を一つ示してもう一度言わせてください。難しければ日本語で短く説明してください。会話の楽しさを優先してください。最後に「評価が欲しいときは文字のチャットに戻って『今日の英会話を評価して』と送ってね」と伝えてください。まずやさしい質問を一つしてください。`;
+}
+function evaluationPrompt(no){const {name,day,lesson}=lessonByNo(no);return `このチャットの直前の英会話練習を、確認できる会話内容だけに基づいて評価してください。推測で採点しないでください。次の書式で日本語で出してください。\n【英会話評価】\nテーマ：${name} DAY ${day+1}\nフレーズ活用：1〜5の数字（判断できなければ「評価不能」）\n文法：1〜5の数字（判断できなければ「評価不能」）\n応答：1〜5の数字（判断できなければ「評価不能」）\n使えた表現：具体例を一つ\n次の練習：一つだけ\n※発音は録音が確認できない場合、評価しないでください。\n今日の目標：${lesson.goal}\n目標のフレーズ：${lesson.phrases.map(p=>p[0]).join(' / ')}`}
+function renderLive(){const no=selectedLesson??engStatus().no,{name,day,lesson}=lessonByNo(no),r=getReview(no),done=getDone(no),completedQuizzes=getEngAnswers(no).length;
+ return `<div class="eng-step">STEP 3 · Live英会話と記録</div><h1 class="eng-h1">${esc(name)} <span class="pill">DAY ${day+1}</span></h1><section class="card"><div class="eng-mission"><strong>今日のミッション：${esc(lesson.live)}</strong><ul>${lesson.missions.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><p class="muted">① 指示をコピー → ② ChatGPTに貼り付けてLiveで会話 → ③ 終了後「評価」をコピー → ④ この画面に貼り付けて保存</p><div class="form-row"><label for="livePrompt">練習指示文</label><textarea readonly class="field" id="livePrompt">${esc(englishPrompt(no))}</textarea></div><div class="buttonline"><button class="eng-secondary" id="copyLive">練習指示をコピー</button><a class="eng-secondary" style="text-align:center;text-decoration:none" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">ChatGPTを開く</a></div><div class="divider"></div><h2 class="section-title">英会話の評価を保存</h2><p class="muted">Live終了後、同じChatGPTチャットのテキスト欄に評価依頼を貼り付け、返ってきた文章をコピーしてここへ。録音や会話全文は保存しません。</p><button class="eng-secondary" id="copyEval">評価依頼をコピー</button><div class="form-row"><label for="evalText">ChatGPTからコピーした評価</label><textarea class="field" id="evalText" rows="9" maxlength="4000" autocomplete="off" spellcheck="false" placeholder="ここをクリックして、ChatGPTの評価を貼り付けてください。">${esc(draftReview!==null?draftReview:(r?.review_text||''))}</textarea><button type="button" class="eng-secondary" id="pasteEval" style="margin-top:8px">クリップボードから貼り付け</button><p class="muted" id="evalHelp">入力欄は編集できます。貼り付けボタンが使えない場合は、入力欄を選んで ⌘V を押してください。</p></div><button class="eng-primary" id="saveEval">${r?'評価を更新':'評価を保存する'}</button><p class="muted">${r?`保存済み：${esc(r.updated_at?.slice(0,10)||r.created_at?.slice(0,10)||'')}`:'評価は後からでも登録できます。'}　※採点は目安で、完璧な音声分析ではありません。</p></section>
+ <section class="card"><h2 class="section-title">今日の学習を終える</h2>${done?`<p class="success">このDAYは${esc(formatDay(done.study_day))}に完了済みです。</p>`:`<p class="muted">英語クイズ：${completedQuizzes}/3問。今日の体験を教えてね。</p><div class="form-row"><label for="didLive">Live英会話はできた？</label><select id="didLive" class="field"><option value="">選んでね</option><option value="yes">練習できた</option><option value="no">今日はお休みした</option></select></div><div class="form-row"><label for="selfRating">今日の手応え</label><select id="selfRating" class="field"><option value="">選んでね</option><option value="good">使えた！</option><option value="middle">もう少し</option><option value="hard">むずかしかった</option></select></div><button class="eng-primary" id="finishDay" ${completedQuizzes<3?'disabled':''}>今日の学習を完了する</button>${completedQuizzes<3?'<p class="muted">まず3問のクイズを終わらせよう。</p>':''}`}<button class="ghost" id="home">← ホームへ戻る</button></section>`;
+}
+function renderFive(){const day=nowDay(),plan=fivePlan(day),q=fiveCursor;if(q>=plan.length)return renderFiveSummary();const entry=plan[q],data=BANK[entry.subject][entry.question_id],r=state.five.find(x=>x.study_day===day&&x.subject===entry.subject&&x.question_no===entry.question_no);
+ const random=rng(hash('v3:'+day+':'+entry.subject+':'+entry.question_id+':options'));const opts=shuffle([0,1,2,3],random);
+ return `<section class="card"><div class="meta"><span class="count">${esc(entry.subject)} · ${entry.question_no+1}/3</span><span>${q+1}/15問</span></div><div class="progress"><div class="bar" style="width:${Math.round(q/15*100)}%"></div></div><h1 class="question">${esc(data[0])}</h1><div class="options">${opts.map((i,k)=>`<button class="option ${r&&i===data[2]?'correct':''} ${r&&i===r.choice_index&&!r.correct?'incorrect':''}" data-fivechoice="${i}" ${r?'disabled':''}><span class="abc">${String.fromCharCode(k+65)}</span><span>${esc(data[1][i])}</span></button>`).join('')}</div>${r?`<div class="feedback ${r.correct?'':'wrong'}"><strong>${r.correct?'正解！':'次はできるよ！'}</strong>${esc(data[3])}</div><button class="primary" id="fiveNext">${q===14?'結果を見る':'次の問題へ'}</button>`:''}</section><button class="ghost" id="home">← ホームに戻る</button>`;
+}
+function renderFiveSummary(){const day=nowDay(),rows=state.five.filter(x=>x.study_day===day),score=rows.filter(a=>a.correct).length;return `<section class="hero"><h1>今日もおつかれさま！ 🌷</h1><p>正解は${score}/${rows.length}問。続けたことも大事な成果だよ。</p></section><section class="card"><h2 class="section-title">今日の教科別結果</h2>${SUBJECTS.map(s=>{const a=rows.filter(x=>x.subject===s);return `<div class="review-item"><strong>${esc(s)}　${a.filter(x=>x.correct).length} / ${a.length} 正解</strong></div>`}).join('')}<button class="primary" id="home">ホームへ戻る</button></section>`}
+function renderHistory(){const done=[...state.done].sort((a,b)=>b.lesson_no-a.lesson_no);return `<section class="card"><h2 class="section-title">英語の学習履歴</h2>${done.length?done.map(x=>{const p=lessonByNo(x.lesson_no),review=getReview(x.lesson_no),ans=getEngAnswers(x.lesson_no);return `<div class="review-item"><strong>${esc(formatDay(x.study_day))} · ${esc(p.name)} DAY ${p.day+1}</strong><p>クイズ ${ans.filter(a=>a.correct).length}/${ans.length}・Live ${x.did_live?'練習した':'お休み'}・自己評価 ${esc(({good:'使えた',middle:'もう少し',hard:'むずかしかった'})[x.self_rating]||'—')}</p><p>${review?'英会話評価あり':'英会話評価は未登録'}</p><button class="secondary" data-reviewlesson="${x.lesson_no}">${review?'評価を見る・編集':'評価を登録'}</button></div>`}).join(''):'<div class="empty">まだ学習履歴はありません</div>'}</section><section class="card"><h2 class="section-title">5教科の履歴（最近）</h2>${[...new Set(state.five.map(x=>x.study_day))].sort().reverse().slice(0,10).map(day=>{const rows=state.five.filter(x=>x.study_day===day);return `<div class="review-item"><strong>${esc(formatDay(day))}</strong><p>${rows.filter(x=>x.correct).length}/${rows.length} 正解</p></div>`}).join('')||'<div class="empty">まだ記録はありません</div>'}</section>`}
+function renderGuardian(){const done=[...state.done].sort((a,b)=>b.lesson_no-a.lesson_no),totalFive=state.five.length,correct=state.five.filter(x=>x.correct).length;
+ const recentDays=[...new Set(state.five.map(x=>x.study_day))].sort().reverse().slice(0,14);
+ return `<section class="hero"><p class="eyebrow">保護者専用ページ</p><h1>${esc(learnerName)}の学習レポート</h1><p>会話内容の全文ではなく、本人が登録した評価とクイズの結果を表示します。</p></section><section class="card"><h2 class="section-title">学習の状況</h2><div class="stats"><div class="stat"><b>${done.length}</b><span>英語の完了日数</span></div><div class="stat"><b>${totalFive?Math.round(correct/totalFive*100)+'%':'—'}</b><span>5教科正答率</span></div><div class="stat"><b>${state.reviews.length}</b><span>Live評価の登録数</span></div></div><h3 class="title-sm">最近の5教科</h3>${recentDays.length?`<table class="logs"><thead><tr><th>日付</th><th>回答</th><th>正答率</th></tr></thead><tbody>${recentDays.map(day=>{const rows=state.five.filter(x=>x.study_day===day);return `<tr><td>${esc(formatDay(day))}</td><td>${rows.length}/15</td><td>${Math.round(rows.filter(x=>x.correct).length/rows.length*100)}%</td></tr>`}).join('')}</tbody></table>`:'<p class="muted">まだ記録がありません。</p>'}</section><section class="card"><h2 class="section-title">英語・Liveの履歴</h2>${done.length?done.map(x=>{const lesson=lessonByNo(x.lesson_no),a=getEngAnswers(x.lesson_no),r=getReview(x.lesson_no);const scores=r?[r.phrase_score,r.grammar_score,r.response_score].map(v=>v==null?'—':v+'/5').join(' / '):'—';return `<div class="review-item"><strong>${esc(formatDay(x.study_day))} · ${esc(lesson.name)} DAY ${lesson.day+1}</strong><p>クイズ ${a.filter(y=>y.correct).length}/${a.length} · Live ${x.did_live?'実施':'お休み'} · 評価 ${r?'登録済み':'未登録'}</p>${r?`<p>フレーズ / 文法 / 応答：${esc(scores)}</p><div class="review-text">${esc(r.review_text)}</div>`:''}</div>`}).join(''):'<div class="empty">英語の完了記録はありません。</div>'}</section><button class="secondary" id="refresh" style="width:100%">最新の結果に更新</button>`;
+}
+function parseScore(text,heading){const re=new RegExp(heading+'\\s*[:：]\\s*([1-5])(?:\\s*\\/\\s*5)?');const m=text.match(re);return m?Number(m[1]):null}
+async function copyFrom(id){const t=E(id);if(!t)return;const s=t.value||t.textContent;try{await navigator.clipboard.writeText(s);flash='コピーしました。ChatGPTに貼り付けてください。'}catch{t.focus();t.select?.();flash='文章を選択しました。コピー操作をしてください。'}render()}
+async function copyText(text){try{await navigator.clipboard.writeText(text);flash='コピーしました。ChatGPTに貼り付けてください。'}catch{flash='コピーできませんでした。ブラウザのコピー機能をお試しください。'}render()}
+function bind(page){const on=(id,fn)=>{if(E(id))E(id).onclick=fn};
+ on('home',()=>{view='home';flash='';render()});on('retry',()=>location.reload());
+ on('demoStart',enterDemo);on('backToLogin',()=>{role='guest';view='home';flash='';render()});
+ on('logout',async()=>{try{await db?.auth.signOut();role='guest';authUser=null;learnerId=null;state=blank();flash='ログアウトしました';view='home';render()}catch(e){logError(e)}});
+ if(E('loginForm'))E('loginForm').onsubmit=async(ev)=>{ev.preventDefault();if(busy)return;busy=true;E('loginForm').querySelector('button').disabled=true;const {data,error}=await db.auth.signInWithPassword({email:E('loginEmail').value.trim(),password:E('loginPassword').value});busy=false;if(error){flash='ログインできませんでした。メールアドレスとパスワードを確認してください。';render();return}await enterCloud(data.user)};
+ on('goEnglish',()=>{selectedLesson=engStatus().no;draftReview=null;engPage='phrases';view='phrases';render()});
+ on('reviewLast',()=>{selectedLesson=state.done.toSorted((a,b)=>b.lesson_no-a.lesson_no)[0].lesson_no;draftReview=null;view='live';render()});
+ on('goFive',()=>{const day=nowDay(),plan=fivePlan(day);fiveCursor=plan.findIndex(q=>!state.five.some(a=>a.study_day===day&&a.subject===q.subject&&a.question_no===q.question_no));view=fiveCursor<0?'fiveSummary':'five';render()});
+ el.querySelectorAll('[data-speak]').forEach(b=>b.onclick=()=>{const ph=lessonByNo(selectedLesson??engStatus().no).lesson.phrases[Number(b.dataset.speak)];if('speechSynthesis' in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(ph[0]);u.lang='en-US';u.rate=.78;speechSynthesis.speak(u)}});
+ on('toEnglishQuiz',()=>{const no=selectedLesson??engStatus().no;engCursor=[0,1,2].findIndex(i=>!getEngAnswers(no).some(a=>a.question_no===i));if(engCursor===-1){view='live'}else view='english-quiz';render()});
+ el.querySelectorAll('[data-engchoice]').forEach(b=>b.onclick=async()=>{const no=selectedLesson??engStatus().no,idx=engCursor,lesson=lessonByNo(no).lesson,choice=Number(b.dataset.engchoice);if(getEngAnswers(no).some(x=>x.question_no===idx))return;
+ await send('english_answers',{learner_id:learnerId,lesson_no:no,question_no:idx,choice_index:choice,correct:choice===lesson.quiz[idx][2]})});
+ on('engNext',()=>{engCursor++;if(engCursor>=3)view='live';render()});
+ el.querySelectorAll('[data-fivechoice]').forEach(b=>b.onclick=async()=>{const day=nowDay(),q=fivePlan(day)[fiveCursor],choice=Number(b.dataset.fivechoice);if(state.five.some(x=>x.study_day===day&&x.subject===q.subject&&x.question_no===q.question_no))return;
+ await send('five_answers',{learner_id:learnerId,study_day:day,subject:q.subject,question_no:q.question_no,question_id:q.question_id,choice_index:choice,correct:choice===BANK[q.subject][q.question_id][2]})});
+ on('fiveNext',()=>{fiveCursor++;if(fiveCursor===15)view='fiveSummary';render()});
+ on('copyLive',()=>copyText(englishPrompt(selectedLesson??engStatus().no)));on('copyEval',()=>copyText(evaluationPrompt(selectedLesson??engStatus().no)));
+ // Keep the evaluation draft without triggering a full rerender while typing.
+ if(E('evalText'))E('evalText').addEventListener('input',e=>{draftReview=e.target.value});
+ on('pasteEval',async()=>{const field=E('evalText');if(!field)return;try{
+  if(!navigator.clipboard?.readText)throw new Error('Clipboard API unavailable');
+  const value=await navigator.clipboard.readText();if(!value){E('evalHelp').textContent='クリップボードが空です。ChatGPTの評価をコピーしてください。';return}
+  field.value=value.slice(0,4000);draftReview=field.value;field.focus();E('evalHelp').textContent='貼り付けました。「評価を保存する」を押してください。';
+ }catch(e){field.focus();E('evalHelp').textContent='ブラウザが自動貼り付けを許可しませんでした。ここを選択して ⌘V（Windowsは Ctrl+V）を押してください。';}
+ });
+ on('saveEval',async()=>{const review=E('evalText').value.trim();draftReview=review;if(!review){flash='評価の文章を貼り付けてください';render();return}const no=selectedLesson??engStatus().no;const saved=await send('live_reviews',{learner_id:learnerId,lesson_no:no,review_text:review,phrase_score:parseScore(review,'フレーズ活用'),grammar_score:parseScore(review,'文法'),response_score:parseScore(review,'応答'),updated_at:new Date().toISOString()},'learner_id,lesson_no');if(saved){draftReview=null;render()}});
+ on('finishDay',async()=>{const no=selectedLesson??engStatus().no,live=E('didLive').value,rating=E('selfRating').value;if(!live||!rating){flash='Liveの実施と手応えを選んでね';render();return}
+ if(getEngAnswers(no).length<3){flash='先に3問を終えてね';render();return}
+ const success=await send('english_completions',{learner_id:learnerId,lesson_no:no,study_day:nowDay(),did_live:live==='yes',self_rating:rating});if(success){view='home';render()}});
+ el.querySelectorAll('[data-reviewlesson]').forEach(b=>b.onclick=()=>{selectedLesson=Number(b.dataset.reviewlesson);draftReview=null;view='live';render()});
+ on('refresh',async()=>{try{await loadCloud();flash='最新の記録を読み込みました';render()}catch(e){logError(e)}})
+}
+init();
+</script><script>if('serviceWorker' in navigator && location.protocol==='https:'){navigator.serviceWorker.register('./sw.js').catch(()=>{})}</script></body></html>

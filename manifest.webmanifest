@@ -1,0 +1,12 @@
+{
+  "name": "もえのまいにち学習",
+  "short_name": "もえの学習",
+  "description": "毎日の5教科と5日間の英語フレーズ・Live会話練習",
+  "lang": "ja",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8f6ff",
+  "theme_color": "#f8f6ff",
+  "icons": [{"src":"icon.png","sizes":"192x192","type":"image/png"}]
+}
